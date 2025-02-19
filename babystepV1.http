@@ -1,0 +1,6 @@
+@babystepV1_HostAddress = http://localhost:5233
+
+GET {{babystepV1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
