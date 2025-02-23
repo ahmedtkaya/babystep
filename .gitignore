@@ -1,0 +1,45 @@
+# Genel .NET, Visual Studio ve Rider için
+bin/
+obj/
+.vscode/
+.idea/
+*.suo
+*.user
+*.dbmdl
+*.sln.docstates
+
+# Paket yönetimi
+node_modules/
+packages/
+.vs/
+.vscode/
+
+# Yapılandırma ve log dosyaları
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+secrets.json
+*.log
+logs/
+.env
+
+# Debug ve derleme dosyaları
+*.pdb
+*.lock.json
+*.bak
+*.cache
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.*.yml
+
+# MacOS ve Linux özel dosyaları
+.DS_Store
+*.swp
+*.swo
+
+# Rider, JetBrains ve ReSharper dosyaları
+*.sln.iml
+.idea/
+*.dotCover
