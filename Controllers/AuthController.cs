@@ -11,6 +11,7 @@ using babystepV1.Dtos;
 using babystepV1.Interfaces;
 using babystepV1.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace babystepV1.Controllers
 {
@@ -41,13 +42,52 @@ namespace babystepV1.Controllers
         public async Task<IActionResult> Login(LoginUserDto loginDto)
         {
             var user = await _userRepository.GetUserByEmailAsync(loginDto.Email);
+
+            // Kullanıcı yoksa veya şifre doğrulanamıyorsa Unauthorized döndür
             if (user == null || !PasswordHelper.VerifyPassword(loginDto.Password, user.Password))
             {
-                return Unauthorized("Invalid email or password.");
+                return Unauthorized(new { message = "Invalid email or password." });
             }
 
-            var token = _tokenService.GenerateToken(user);
-            return Ok(new { Token = token, User = user });
+            // Kullanıcıdan ID ve diğer gerekli bilgileri al
+            var userId = user.Id; // Kullanıcının ID'sini al
+            var token = _tokenService.GenerateToken(userId, user.Email); // Token oluştur
+
+            // Geri döndürülecek kullanıcı bilgilerini ayarla
+            var userResponse = new
+            {
+                Id = user.Id,
+                Email = user.Email,
+                FullName = user.Name // Kullanıcının tam adını ekleyebilirsin
+            };
+
+            // Token ve kullanıcı bilgileri ile yanıt dön
+            return Ok(new { Token = token, User = userResponse });
+        }
+        [HttpGet("user")]
+        [Authorize]
+        public async Task<IActionResult> GetUser()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            if (!Guid.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID format");
+            }
+
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+
+
         }
     }
 }
