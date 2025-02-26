@@ -15,5 +15,20 @@ namespace babystepV1.Data
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Kids> Kids { get; set; }
+         protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();  // Email alanı benzersiz olacak
+    }
+
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     modelBuilder.Entity<User>().HasMany(u => u.Kids)
+        //     .WithOne(k => k.User)
+        //     .HasForeignKey(k => k.UserId)
+        //     .OnDelete(DeleteBehavior.Cascade);
+        // }
     }
 }

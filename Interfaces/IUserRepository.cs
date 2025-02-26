@@ -10,7 +10,8 @@ namespace babystepV1.Interfaces
     public interface IUserRepository
     {
         Task CreateUserAsync(RegisterUserDto userDto);
+        Task<User> GetUserByIdAsync(Guid Id);
         Task<bool> IsEmailRegisteredAsync(string email);
-        Task<User> GetUserByEmailAsync(string email);
+        Task<User?> GetUserByEmailAsync(string email);
     }
 }

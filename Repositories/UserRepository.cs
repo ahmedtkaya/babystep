@@ -46,6 +46,9 @@ namespace babystepV1.Repositories
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
+        public async Task<User> GetUserByIdAsync(Guid userId){
+            return await _context.Users.FindAsync(userId);
+        }
 
     }
 }

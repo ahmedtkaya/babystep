@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using babystepV1.Models;
+
 
 namespace babystepV1.Dtos
 {
-    public class RegisterUserDto
+    public class GetUserDto
     {
         [Required]
         [StringLength(50)]
@@ -21,7 +21,5 @@ namespace babystepV1.Dtos
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Password { get; set; }
-       
-        
     }
 }
