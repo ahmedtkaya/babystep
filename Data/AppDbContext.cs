@@ -16,6 +16,7 @@ namespace babystepV1.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Kids> Kids { get; set; }
+        public DbSet<Diaper> Diapers { get; set; }
          protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()

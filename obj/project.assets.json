@@ -4561,24 +4561,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/ahmedtkaya/.nuget/packages/": {}
+    "C:\\Users\\Omer\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ahmedtkaya/Desktop/projects/babystep/babystepV1/babystepV1.csproj",
+      "projectUniqueName": "C:\\Users\\Omer\\source\\repos\\ahmedtkaya\\babystep\\babystepV1.csproj",
       "projectName": "babystepV1",
-      "projectPath": "/Users/ahmedtkaya/Desktop/projects/babystep/babystepV1/babystepV1.csproj",
-      "packagesPath": "/Users/ahmedtkaya/.nuget/packages/",
-      "outputPath": "/Users/ahmedtkaya/Desktop/projects/babystep/babystepV1/obj/",
+      "projectPath": "C:\\Users\\Omer\\source\\repos\\ahmedtkaya\\babystep\\babystepV1.csproj",
+      "packagesPath": "C:\\Users\\Omer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Omer\\source\\repos\\ahmedtkaya\\babystep\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/ahmedtkaya/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Omer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4675,7 +4683,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
