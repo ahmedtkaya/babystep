@@ -63,6 +63,38 @@ namespace babystepV1.Repositories
         {
             return await _context.Kids.Where(k => k.UserId.ToString() == userId).ToListAsync();
         }
+        public async Task<Kids?> UpdateKidAsync(Guid id, UpdateKidDto updateKidDto)
+        {
+            var kid = await _context.Kids.FindAsync(id);
+            if (kid == null)
+            {
+                throw new Exception("Kid not found.");
+            }
 
+            kid.Name = updateKidDto.Name;
+            kid.Gender = updateKidDto.Gender;
+            await _context.SaveChangesAsync();
+            return kid;
+        }
+        public async Task<Kids?> DeleteKidAsync(Guid id)
+        {
+            var kid = await _context.Kids.FindAsync(id);
+            if (kid == null)
+            {
+                throw new Exception("Kid not found.");
+            }
+
+            try
+            {
+                _context.Kids.Remove(kid);
+                await _context.SaveChangesAsync();
+                return kid;
+            }
+            catch (DbUpdateException ex)
+            {
+
+                throw new Exception("An error occurred while deleting the kid.", ex);
+            }
+        }
     }
 }

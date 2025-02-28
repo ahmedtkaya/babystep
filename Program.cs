@@ -16,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<TokenService>();
+builder.Services.AddScoped<IAgeCalculationService, AgeCalculationService>();
 var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
 var issuer = builder.Configuration["Jwt:Issuer"];
 var audience = builder.Configuration["Jwt:Audience"];
@@ -37,9 +38,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // MySQL Bağlantı Dizesi
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(options => 
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
-   
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
