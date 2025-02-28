@@ -13,6 +13,8 @@ namespace babystepV1.Interfaces
         Task<Kids> AddKidsToAsync(Guid userId, CreateKidsDto createKidsDto);
         Task<Kids?> GetKidByIdAsync(Guid id);
         Task<IEnumerable<Kids>> GetKidsByUserIdAsync(string userId);
+        Task<Kids?> UpdateKidAsync(Guid id, UpdateKidDto updateKidDto);
+        Task<Kids?> DeleteKidAsync(Guid id);
 
     }
 }
