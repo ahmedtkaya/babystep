@@ -9,7 +9,7 @@ using babystepV1.Models;
 
 namespace babystepV1.Data
 {
-    public class AppDbContext :DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -17,12 +17,13 @@ namespace babystepV1.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Kids> Kids { get; set; }
         public DbSet<Diaper> Diapers { get; set; }
-         protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<User>()
-            .HasIndex(u => u.Email)
-            .IsUnique();  // Email alanı benzersiz olacak
-    }
+        public DbSet<Reminder> Reminders { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique();  // Email alanı benzersiz olacak
+        }
 
         // protected override void OnModelCreating(ModelBuilder modelBuilder)
         // {
