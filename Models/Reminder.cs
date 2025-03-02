@@ -4,25 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using babystepV1.Helpers;
 using System.ComponentModel.DataAnnotations;
-using babystepV1.Models;
+
 
 namespace babystepV1.Models
 {
-    public class Kids
+    public class Reminder
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid Uuid { get; set; } = Guid.NewGuid();
         [Required]
-        public string Name { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
         [Required]
-        public DateTime BirthDate { get; set; }
+        public string Description { get; set; } = string.Empty;
         [Required]
-        public string Gender { get; set; } = string.Empty;
-
+        public DateTime ReminderDate { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-
     }
 }

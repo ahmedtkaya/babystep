@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("babystepV1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bcc08bb7812d7ca4d23fa3269f9f9ed38547edc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88f76c7e6ea9b7b6526feac8e5497faf40981b76")]
 [assembly: System.Reflection.AssemblyProductAttribute("babystepV1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("babystepV1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
